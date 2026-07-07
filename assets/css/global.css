@@ -542,11 +542,19 @@ body {
   margin-left: auto;
 }
 
+.mobile-menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
 .mobile-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin: 14px 0 30px;
+  margin: 0;
   font-family: Sora, Manrope, sans-serif;
   font-size: 1.7rem;
   font-weight: 850;
