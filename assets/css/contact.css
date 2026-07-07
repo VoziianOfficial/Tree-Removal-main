@@ -780,3 +780,203 @@
 .contact-map-style__form select:invalid {
   color: #8a8d88;
 }
+.contact-help-services {
+  background: #ffffff;
+  padding-top: 74px;
+  padding-bottom: 96px;
+}
+
+.contact-help-heading {
+  max-width: 860px;
+  margin-bottom: 58px;
+}
+
+.contact-help-heading .eyebrow {
+  justify-content: center;
+}
+
+.contact-help-heading h2 {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--black);
+  font-size: clamp(2rem, 3.4vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  font-weight: 680;
+}
+
+.contact-help-heading p:last-child {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #626862;
+}
+
+.contact-help-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.contact-help-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  min-height: 370px;
+  padding: 58px 34px 76px;
+  background: #fffdf8;
+  border: 1px solid rgba(15, 17, 17, 0.06);
+  color: var(--black);
+  text-align: center;
+  box-shadow: 0 18px 46px rgba(15, 17, 17, 0.075);
+  transition:
+    transform 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.contact-help-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(126, 155, 32, 0.26);
+  box-shadow: 0 30px 64px rgba(15, 17, 17, 0.12);
+}
+
+.contact-help-icon {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 32px;
+  color: #7e9b20;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.contact-help-icon .icon {
+  width: 58px;
+  height: 58px;
+  stroke-width: 1.45;
+}
+
+.contact-help-card:hover .contact-help-icon {
+  color: var(--black);
+  transform: translateY(-5px) scale(1.04);
+}
+
+.contact-help-card h3 {
+  max-width: 260px;
+  margin-bottom: 18px;
+  color: var(--black);
+  font-size: clamp(1.25rem, 1.55vw, 1.7rem);
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+}
+
+.contact-help-card p {
+  max-width: 310px;
+  margin: 0 auto;
+  color: #626862;
+  font-size: 0.98rem;
+  line-height: 1.76;
+}
+
+.contact-help-action {
+  position: absolute;
+  left: 50%;
+  bottom: -29px;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #7e9b20;
+  color: var(--white);
+  box-shadow: 0 14px 30px rgba(15, 17, 17, 0.14);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-help-action .icon {
+  width: 23px;
+  height: 23px;
+  stroke-width: 2.2;
+}
+
+.contact-help-card:hover .contact-help-action {
+  background: var(--black);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* active green card */
+
+.contact-help-card--active {
+  background: #7e9b20;
+  border-color: rgba(126, 155, 32, 0.42);
+  color: var(--white);
+}
+
+.contact-help-card--active h3 {
+  color: var(--white);
+}
+
+.contact-help-card--active p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.contact-help-card--active .contact-help-icon {
+  width: 92px;
+  height: 92px;
+  margin-bottom: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--black);
+}
+
+.contact-help-card--active .contact-help-icon .icon {
+  width: 42px;
+  height: 42px;
+}
+
+.contact-help-card--active .contact-help-action {
+  background: var(--black);
+  color: var(--white);
+}
+
+.contact-help-card--active:hover {
+  background: #6f8917;
+}
+
+@media (max-width: 1150px) {
+  .contact-help-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-help-services {
+    padding-top: 56px;
+    padding-bottom: 78px;
+  }
+
+  .contact-help-heading {
+    margin-bottom: 40px;
+  }
+
+  .contact-help-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-help-card {
+    min-height: auto;
+    padding: 46px 26px 66px;
+  }
+
+  .contact-help-icon {
+    margin-bottom: 22px;
+  }
+}
