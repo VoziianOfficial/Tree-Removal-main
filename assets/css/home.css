@@ -123,15 +123,19 @@
   grid-template-columns: 0.78fr 1fr;
   gap: 42px;
   align-items: start;
+  overflow: visible;
 }
 
 .faq-aside {
   position: sticky;
   top: calc(var(--header) + 30px);
+  align-self: start;
+  height: fit-content;
   padding: 28px;
   border-radius: var(--radius);
   background: var(--black);
   color: var(--white);
+  z-index: 2;
 }
 
 .faq-aside h3 {
@@ -143,12 +147,21 @@
   color: rgba(255, 255, 255, 0.74);
 }
 
+.faq-accordion {
+  min-width: 0;
+}
+
 @media (max-width: 1000px) {
   .category-row,
   .review-panel,
   .faq-layout {
     grid-template-columns: 1fr;
   }
+
+        .faq-aside {
+          position: relative;
+          top: auto;
+        }
 
   .category-card:nth-child(2) {
     margin-top: 0;
