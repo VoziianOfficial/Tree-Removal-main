@@ -415,3 +415,229 @@
     min-height: 260px;
   }
 }
+
+
+.oakline-circle-showcase {
+  position: relative;
+  overflow: hidden;
+  background: #f7f5f1;
+}
+
+.oakline-circle-showcase::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 135px;
+  height: 1px;
+  background: rgba(15, 17, 17, 0.1);
+  pointer-events: none;
+}
+
+.circle-showcase-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.62fr);
+  gap: 42px;
+  align-items: end;
+  margin-bottom: 54px;
+}
+
+.circle-showcase-head h2 {
+  max-width: 680px;
+}
+
+.circle-showcase-head>p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.circle-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.circle-showcase-item {
+  --circle-size: 258px;
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: min(100%, var(--circle-size));
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background:
+    linear-gradient(rgba(15, 17, 17, 0.54), rgba(15, 17, 17, 0.72)),
+    var(--circle-img) center / cover no-repeat;
+  color: var(--white);
+  box-shadow: 0 24px 54px rgba(15, 17, 17, 0.18);
+  transform: translateY(0);
+  transition:
+    transform 0.32s ease,
+    box-shadow 0.32s ease,
+    filter 0.32s ease;
+}
+
+.circle-showcase-item:nth-child(even) {
+  margin-top: 34px;
+}
+
+.circle-showcase-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.24), transparent 26%),
+    linear-gradient(180deg, rgba(184, 214, 61, 0.16), rgba(15, 17, 17, 0.4));
+  opacity: 0.75;
+  transition: opacity 0.32s ease;
+}
+
+.circle-showcase-item::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 214, 61, 0.38);
+  pointer-events: none;
+  transition:
+    inset 0.32s ease,
+    border-color 0.32s ease,
+    opacity 0.32s ease;
+}
+
+.circle-showcase-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 34px 70px rgba(15, 17, 17, 0.24);
+  filter: saturate(1.05);
+}
+
+.circle-showcase-item:hover::before {
+  opacity: 1;
+}
+
+.circle-showcase-item:hover::after {
+  inset: 10px;
+  border-color: rgba(184, 214, 61, 0.72);
+}
+
+.circle-ring {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  pointer-events: none;
+}
+
+.circle-icon,
+.circle-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 34px;
+  text-align: center;
+  transition:
+    opacity 0.32s ease,
+    transform 0.32s ease;
+}
+
+.circle-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.circle-icon .icon {
+  width: 88px;
+  height: 88px;
+  color: var(--lime);
+  stroke-width: 1.45;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.34));
+}
+
+.circle-text {
+  align-content: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(14px) scale(0.94);
+}
+
+.circle-text strong {
+  display: block;
+  color: var(--white);
+  font-family: Sora, Manrope, Inter, sans-serif;
+  font-size: 1.18rem;
+  line-height: 1.15;
+  font-weight: 850;
+}
+
+.circle-text small {
+  display: block;
+  max-width: 190px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-weight: 560;
+}
+
+.circle-showcase-item:hover .circle-icon {
+  opacity: 0;
+  transform: translateY(-12px) scale(0.76);
+}
+
+.circle-showcase-item:hover .circle-text {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 1100px) {
+  .circle-showcase-head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .circle-showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 22px;
+  }
+
+  .circle-showcase-item:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .oakline-circle-showcase::before {
+    display: none;
+  }
+
+  .circle-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .circle-showcase-item {
+    --circle-size: 280px;
+  }
+
+  .circle-icon .icon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .circle-text strong {
+    font-size: 1.08rem;
+  }
+
+  .circle-text small {
+    font-size: 0.86rem;
+  }
+}
