@@ -74,3 +74,264 @@
 }
 
 
+.oakline-service-showcase {
+  background: #f7f5f1;
+  padding-top: 82px;
+  padding-bottom: 82px;
+}
+
+.oakline-service-showcase__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 42px;
+}
+
+.oakline-service-showcase__head h2 {
+  margin-top: 8px;
+  max-width: 720px;
+}
+
+.oakline-service-showcase__controls {
+  display: inline-flex;
+  border: 1px solid rgba(15, 17, 17, 0.12);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.oakline-showcase-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 112px;
+  min-height: 56px;
+  padding: 0 22px;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  font-weight: 820;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.oakline-showcase-btn+.oakline-showcase-btn {
+  border-left: 1px solid rgba(15, 17, 17, 0.12);
+}
+
+.oakline-showcase-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.oakline-showcase-btn .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.oakline-service-showcase__slider {
+  position: relative;
+  min-height: 620px;
+}
+
+.oakline-service-showcase__media {
+  position: relative;
+  width: min(78%, 980px);
+  min-height: 620px;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.oakline-service-showcase__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.28s ease;
+}
+
+.oakline-service-showcase__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(15, 17, 17, 0.08),
+      rgba(15, 17, 17, 0.18));
+  pointer-events: none;
+}
+
+.oakline-service-showcase__badge {
+  position: absolute;
+  left: 0;
+  bottom: 38px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 62px;
+  padding: 0 32px;
+  background: #2a2723;
+  color: var(--white);
+  font-family: Sora, Manrope, Inter, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 760;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  box-shadow: 0 16px 34px rgba(15, 17, 17, 0.16);
+}
+
+.oakline-service-showcase__card {
+  position: absolute;
+  right: 0;
+  top: 66px;
+  width: min(360px, 100%);
+  min-height: 440px;
+  padding: 42px 44px 38px;
+  background: #fffdf9;
+  box-shadow: 0 24px 48px rgba(15, 17, 17, 0.08);
+  z-index: 3;
+}
+
+.oakline-service-showcase__kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.oakline-service-showcase__card h3 {
+  margin-bottom: 22px;
+  color: var(--black);
+  font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.oakline-service-showcase__card p {
+  margin-bottom: 30px;
+  color: #5e6761;
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.oakline-service-showcase__link {
+  position: relative;
+  display: inline-block;
+  color: var(--green);
+  font-size: 1.02rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.oakline-service-showcase__link::after {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 2px;
+  margin-top: 10px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+.oakline-service-showcase__link:hover {
+  color: var(--black);
+}
+
+.oakline-service-showcase__link:hover::after {
+  width: 124px;
+}
+
+.oakline-service-showcase__footer {
+  margin-top: 26px;
+  text-align: right;
+}
+
+.oakline-service-showcase__footer p {
+  color: #2f332f;
+  font-size: 1rem;
+}
+
+.oakline-service-showcase__footer a {
+  color: var(--green);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.oakline-service-showcase__footer a:hover {
+  color: var(--black);
+}
+
+@media (max-width: 1200px) {
+  .oakline-service-showcase__slider {
+    min-height: auto;
+  }
+
+  .oakline-service-showcase__media {
+    width: 100%;
+    min-height: 520px;
+  }
+
+  .oakline-service-showcase__card {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 760px);
+    margin: -48px auto 0;
+  }
+
+  .oakline-service-showcase__footer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .oakline-service-showcase {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .oakline-service-showcase__head {
+    flex-direction: column;
+    margin-bottom: 28px;
+  }
+
+  .oakline-service-showcase__controls {
+    width: 100%;
+  }
+
+  .oakline-showcase-btn {
+    width: 50%;
+  }
+
+  .oakline-service-showcase__media {
+    min-height: 320px;
+  }
+
+  .oakline-service-showcase__badge {
+    bottom: 20px;
+    min-height: 52px;
+    padding: 0 24px;
+    font-size: 0.98rem;
+  }
+
+  .oakline-service-showcase__card {
+    width: 100%;
+    margin-top: -24px;
+    padding: 30px 24px 28px;
+    min-height: auto;
+  }
+
+  .oakline-service-showcase__card h3 {
+    font-size: 1.72rem;
+  }
+
+  .oakline-service-showcase__card p {
+    font-size: 0.96rem;
+    line-height: 1.78;
+  }
+
+  .oakline-service-showcase__footer {
+    margin-top: 20px;
+  }
+}
