@@ -1119,8 +1119,19 @@
   }
 
   .offer-split-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(240px, 78vw);
+    grid-template-columns: none;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .offer-split-item {
+    scroll-snap-align: start;
   }
 
   .offer-split-icon {
