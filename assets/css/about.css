@@ -1,3 +1,10 @@
+.inner-hero.hero-about {
+  background-image: url("../images/hero-about.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .story-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;

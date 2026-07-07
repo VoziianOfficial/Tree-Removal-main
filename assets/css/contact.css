@@ -1,3 +1,10 @@
+.inner-hero.hero-contact {
+  background-image: url("../images/hero-contact.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .contact-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -457,7 +464,7 @@
   min-height: 260px;
   background:
     linear-gradient(rgba(15, 17, 17, 0.28), rgba(15, 17, 17, 0.28)),
-    url("../images/hero-contact.jpg") center / cover no-repeat;
+    url("../images/card-1.jpg") center / cover no-repeat;
 }
 
 .contact-map-style__layout.container {
