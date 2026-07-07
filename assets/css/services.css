@@ -275,6 +275,11 @@
     grid-template-columns: 1fr;
   }
 
+  .service-sticky-link {
+    min-height: auto;
+    padding: 16px 18px;
+  }
+
   .service-sticky-main {
     padding-bottom: 46px;
   }
