@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Submit tree project details to Oakline and compare participating local provider options.">
+  <title>Contact Oakline | Submit Project Details</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <script defer src="assets/js/config.js"></script>
+  <script defer src="assets/js/global.js"></script>
+  <script defer src="assets/js/contact.js"></script>
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-site-header></div>
+
+  <main id="main">
+    <section class="inner-hero hero-contact">
+      <div class="inner-hero-content">
+        <div class="inner-hero-copy" data-aos="fade-up">
+          <p class="eyebrow">Contact Oakline</p>
+          <h1>Submit tree project details for local provider matching.</h1>
+          <p class="lead">Tell Oakline what is happening on the property. Participating providers may contact you regarding your request where availability exists.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#request-form">Start your request</a>
+            <a class="btn btn-ghost-dark" data-config-attr="href:contact.phoneHref"><span data-config="contact.phoneDisplay"></span></a>
+          </div>
+          <p class="clarifier">Submitting a request does not create a direct service contract with Oakline.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="contact-options">
+      <div class="container">
+        <div class="contact-strip" data-aos="fade-up">
+          <article class="contact-method"><span data-lucide="phone"></span><strong>Phone</strong><a data-config-attr="href:contact.phoneHref" data-config="contact.phoneDisplay"></a></article>
+          <article class="contact-method"><span data-lucide="mail"></span><strong>Email</strong><a data-config-attr="href:contact.emailHref" data-config="contact.email"></a></article>
+          <article class="contact-method"><span data-lucide="building-2"></span><strong>Address</strong><span data-config="company.fullAddress"></span></article>
+          <article class="contact-method"><span data-lucide="map-pin"></span><strong>Service area</strong><span data-config="area.shortServiceArea"></span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="request-form" aria-labelledby="request-title">
+      <div class="container">
+        <div class="request-panel" data-aos="fade-up">
+          <div class="request-form-wrap">
+            <p class="eyebrow">Project request</p>
+            <h2 id="request-title">Share the details Oakline should route.</h2>
+            <form class="form-grid" action="contact.php" method="post" data-request-form novalidate>
+              <div class="form-field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+              <div class="form-field">
+                <label for="service">Service category</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a category</option>
+                  <option>Tree Removal</option>
+                  <option>Tree Trimming & Pruning</option>
+                  <option>Stump Grinding & Removal</option>
+                  <option>Emergency Storm Cleanup</option>
+                  <option>Lot & Land Clearing</option>
+                  <option>Tree Health Assessment</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="message">Project details</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <div class="form-field is-hidden" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+              <input type="hidden" name="sourcePage" value="contact.html">
+              <input type="hidden" name="formStartedAt" value="">
+              <div class="form-field full">
+                <label class="checkbox-line" for="privacyConsent">
+                  <input id="privacyConsent" name="privacyConsent" type="checkbox" value="yes" required>
+                  <span>I agree that Oakline may process my request and that participating providers may contact me regarding my project. I understand Oakline is not a direct tree service provider.</span>
+                </label>
+              </div>
+              <div class="form-field full">
+                <p class="form-note">Oakline is an independent matching platform. Final pricing, scheduling, availability, licensing, insurance, warranties, and service terms come from participating providers.</p>
+              </div>
+              <div class="form-field full">
+                <button class="btn btn-primary" type="submit">Submit project details <span data-lucide="send"></span></button>
+                <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+              </div>
+            </form>
+          </div>
+          <aside class="request-aside">
+            <h3>What helps providers review your request?</h3>
+            <ul class="feature-list">
+              <li><span data-lucide="check"></span><span>Tree location and nearby structures.</span></li>
+              <li><span data-lucide="check"></span><span>Visible condition, urgency, and access limitations.</span></li>
+              <li><span data-lucide="check"></span><span>Cleanup, stump, haul-away, or assessment preferences.</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="after-submit">
+      <div class="container">
+        <div class="center-heading">
+          <p class="eyebrow">After you submit</p>
+          <h2 id="after-submit">What happens next is provider-led.</h2>
+          <p>Oakline helps route the request. Participating providers handle follow-up and any direct service discussions.</p>
+        </div>
+        <div class="journey-steps">
+          <article class="premium-card" data-aos="fade-up"><span class="card-icon" data-lucide="clipboard-list"></span><h3>Request received</h3><p>Oakline validates required details and prepares the request for matching.</p></article>
+          <article class="premium-card" data-aos="fade-up"><span class="card-icon" data-lucide="search"></span><h3>Availability checked</h3><p>Participating provider options may depend on category, location, and timing.</p></article>
+          <article class="premium-card" data-aos="fade-up"><span class="card-icon" data-lucide="phone"></span><h3>Provider follow-up</h3><p>Providers may contact you directly to discuss scope, availability, and terms.</p></article>
+          <article class="premium-card" data-aos="fade-up"><span class="card-icon" data-lucide="shield-check"></span><h3>You decide</h3><p>You compare the provider's information and choose whether to continue.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="support-area">
+      <div class="container split">
+        <div class="image-frame" data-aos="fade-right">
+          <img src="assets/images/hero-services.jpg" alt="Tree-lined property service area context" loading="lazy">
+        </div>
+        <div class="content-stack" data-aos="fade-left">
+          <p class="eyebrow">Request support</p>
+          <h2 id="support-area">Provider availability can change by location and project type.</h2>
+          <p>Participating providers may follow up when the request fits their service area, schedule, equipment, and scope. Oakline cannot guarantee a provider response, a specific price, or a service appointment.</p>
+          <p data-config="area.serviceArea"></p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#request-form">Submit details</a>
+            <a class="btn btn-ghost" href="all-services.html">Review categories</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="contact-faq-title">
+      <div class="container faq-layout">
+        <aside class="faq-aside" data-aos="fade-right">
+          <p class="eyebrow">Contact FAQ</p>
+          <h3 id="contact-faq-title">Before sending a request.</h3>
+          <p>The form sends data to Oakline's backend endpoint and returns a visible status message.</p>
+        </aside>
+        <div class="accordion faq-accordion" id="contact-faq" data-accordion data-aos="fade-left">
+          <article class="accordion-item"><button class="accordion-trigger" type="button" aria-expanded="false" data-accordion-trigger>Who may contact me after submission?<span data-lucide="chevron-down"></span></button><div class="accordion-panel"><p>Participating local providers may contact you regarding your request if coverage and availability fit.</p></div></article>
+          <article class="accordion-item"><button class="accordion-trigger" type="button" aria-expanded="false" data-accordion-trigger>Does Oakline sell the service directly?<span data-lucide="chevron-down"></span></button><div class="accordion-panel"><p>No. Oakline is an independent matching platform and does not directly provide tree services.</p></div></article>
+          <article class="accordion-item"><button class="accordion-trigger" type="button" aria-expanded="false" data-accordion-trigger>What should I include in the message?<span data-lucide="chevron-down"></span></button><div class="accordion-panel"><p>Include the service category, visible condition, access details, urgency, cleanup preferences, and anything near the tree that may affect scope.</p></div></article>
+          <article class="accordion-item"><button class="accordion-trigger" type="button" aria-expanded="false" data-accordion-trigger>Is my submission a contract?<span data-lucide="chevron-down"></span></button><div class="accordion-panel"><p>No. Submitting details through Oakline does not create a direct service contract with Oakline.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="prefooter-cta cta-contact">
+      <div class="container" data-aos="fade-up">
+        <p class="eyebrow">Begin here</p>
+        <h2>Start a tree-related request with clear platform disclosure.</h2>
+        <p>Share your project details and compare participating local provider options where availability exists.</p>
+        <div class="btn-row">
+          <a class="btn btn-accent" href="#request-form">Submit project details</a>
+          <a class="btn btn-ghost-dark" data-config-attr="href:contact.phoneHref">Call Oakline</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+.service-overview-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.scenario-strip {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  gap: 18px;
+}
+
+.scenario-strip .scenario-card:first-child {
+  min-height: 470px;
+}
+
+.matching-panel {
+  display: grid;
+  grid-template-columns: 0.78fr 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 34px;
+  border-radius: var(--radius);
+  background: var(--black);
+  color: var(--white);
+}
+
+.matching-panel h2,
+.matching-panel h3 {
+  color: var(--white);
+}
+
+.matching-panel p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.matching-panel .process-line {
+  grid-template-columns: 1fr;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.matching-panel .process-step {
+  min-height: auto;
+  border-right: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.matching-panel .process-step:last-child {
+  border-bottom: 0;
+}
+
+.matching-panel .process-step h3 {
+  color: var(--white);
+}
+
+.matching-panel .process-step p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.service-faq-grid {
+  display: grid;
+  grid-template-columns: 0.74fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 1000px) {
+  .service-overview-panel,
+  .matching-panel,
+  .service-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-grid,
+  .scenario-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .compare-grid,
+  .scenario-strip {
+    grid-template-columns: 1fr;
+  }
+}

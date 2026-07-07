@@ -1,0 +1,108 @@
+.contact-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.contact-method {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.contact-method .icon {
+  color: var(--green);
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+
+.contact-method strong {
+  display: block;
+  font-family: Sora, Manrope, sans-serif;
+  margin-bottom: 6px;
+}
+
+.contact-method span,
+.contact-method a {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.request-panel {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.request-form-wrap {
+  padding: clamp(26px, 4vw, 46px);
+}
+
+.request-aside {
+  position: relative;
+  min-height: 100%;
+  padding: clamp(26px, 4vw, 46px);
+  background: var(--black);
+  color: var(--white);
+}
+
+.request-aside::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/hero-contact.jpg") center/cover;
+  opacity: 0.34;
+}
+
+.request-aside > * {
+  position: relative;
+  z-index: 2;
+}
+
+.request-aside h3 {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.request-aside p,
+.request-aside li {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.journey-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.journey-steps .premium-card {
+  min-height: 260px;
+}
+
+@media (max-width: 1000px) {
+  .contact-strip,
+  .journey-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .request-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .request-aside {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact-strip,
+  .journey-steps {
+    grid-template-columns: 1fr;
+  }
+}
