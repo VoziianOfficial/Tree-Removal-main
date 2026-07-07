@@ -641,3 +641,148 @@
     font-size: 0.86rem;
   }
 }
+
+.oakline-info-grid {
+  background: #f7f5f1;
+}
+
+.oakline-info-grid-heading {
+  max-width: 860px;
+}
+
+.oakline-info-grid-heading p:last-child {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.oakline-info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.oakline-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 320px;
+  padding: 38px 28px 30px;
+  background: #f2efea;
+  border: 1px solid rgba(15, 17, 17, 0.06);
+  box-shadow: 0 10px 28px rgba(15, 17, 17, 0.04);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+
+.oakline-info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(15, 17, 17, 0.08);
+  border-color: rgba(184, 214, 61, 0.45);
+}
+
+.oakline-info-card--accent {
+  background: #ece7dc;
+}
+
+.oakline-info-card--accent-soft {
+  background: #efede7;
+}
+
+.oakline-info-card--dark {
+  background: #24211d;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.oakline-info-icon {
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+
+.oakline-info-icon .icon {
+  width: 54px;
+  height: 54px;
+  stroke-width: 1.6;
+  color: var(--black);
+}
+
+.oakline-info-card--dark .oakline-info-icon .icon {
+  color: var(--lime);
+}
+
+.oakline-info-card h3 {
+  margin-bottom: 14px;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.oakline-info-card p {
+  max-width: 320px;
+  color: #626660;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.oakline-info-card--dark h3 {
+  color: var(--white);
+}
+
+.oakline-info-card--dark p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.oakline-info-note {
+  margin-top: auto;
+  padding-top: 24px;
+  color: #9bb319;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.oakline-info-card--dark .oakline-info-note {
+  color: var(--lime);
+}
+
+.oakline-info-card--accent {
+  position: relative;
+}
+
+.oakline-info-card--accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: #99b321;
+}
+
+@media (max-width: 1100px) {
+  .oakline-info-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .oakline-info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .oakline-info-card {
+    min-height: auto;
+    padding: 34px 24px 28px;
+  }
+
+  .oakline-info-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .oakline-info-card p {
+    font-size: 0.96rem;
+  }
+}
