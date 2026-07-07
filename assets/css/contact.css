@@ -5,6 +5,13 @@
   background-size: cover;
 }
 
+.prefooter-cta.cta-contact {
+  background-image: url("../images/hero-contact.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .contact-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
