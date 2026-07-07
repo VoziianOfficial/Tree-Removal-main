@@ -25,7 +25,7 @@
           <p class="lead">Tell Oakline what is happening on the property. Participating providers may contact you regarding your request where availability exists.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href="#request-form">Start your request</a>
-            <a class="btn btn-ghost-dark" data-config-attr="href:contact.phoneHref"><span data-config="contact.phoneDisplay"></span></a>
+            <a class="btn btn-ghost-dark" href="tel:+15550148222" data-config-attr="href:contact.phoneHref"><span data-config="contact.phoneDisplay"></span></a>
           </div>
           <p class="clarifier">Submitting a request does not create a direct service contract with Oakline.</p>
         </div>
@@ -138,7 +138,9 @@
       <p class="eyebrow">Get in touch</p>
       <h2 id="contact-map-style-title">Contact Oakline</h2>
 
-      <form class="contact-map-style__form" action="contact.php" method="post">
+      <form id="request-form" class="contact-map-style__form" action="contact.php" method="post" data-request-form>
+        <input type="hidden" name="sourcePage" value="contact.html">
+        <input type="hidden" name="formStartedAt" value="">
         <label>
           <span class="sr-only">Name</span>
           <input type="text" name="name" placeholder="Enter Name" required>
@@ -174,6 +176,7 @@
         </label>
 
         <button class="btn btn-primary" type="submit">Send Message</button>
+        <p class="form-status" data-form-status aria-live="polite"></p>
       </form>
     </div>
 
@@ -335,7 +338,7 @@
             <p>Share your project details and compare participating local provider options where availability exists.</p>
             <div class="btn-row">
               <a class="btn btn-accent" href="#request-form">Submit project details</a>
-              <a class="btn btn-ghost-dark" data-config-attr="href:contact.phoneHref">Call Oakline</a>
+              <a class="btn btn-ghost-dark" href="tel:+15550148222" data-config-attr="href:contact.phoneHref">Call Oakline</a>
             </div>
           </div>
         </section>
