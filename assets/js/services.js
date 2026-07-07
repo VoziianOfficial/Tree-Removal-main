@@ -154,15 +154,85 @@
     }).join("");
   }
 
+  function serviceStickyDetail(data, slug) {
+    var services = [
+      ["tree-removal", "Tree Removal", "tree-removal.html"],
+      ["tree-trimming-pruning", "Trimming & Pruning", "tree-trimming-pruning.html"],
+      ["stump-grinding-removal", "Stump Grinding", "stump-grinding-removal.html"],
+      ["emergency-storm-cleanup", "Storm Cleanup", "emergency-storm-cleanup.html"],
+      ["lot-land-clearing", "Lot & Land Clearing", "lot-land-clearing.html"],
+      ["tree-health-assessment", "Tree Health Assessment", "tree-health-assessment.html"]
+    ];
+
+    var nav = services.map(function (item) {
+      var active = item[0] === slug ? " service-sticky-link--active" : "";
+
+      return '' +
+        '<a class="service-sticky-link' + active + '" href="' + item[2] + '">' +
+        '<span>' + item[1] + '</span>' +
+        '<span data-lucide="arrow-up-right"></span>' +
+        '</a>';
+    }).join("");
+
+    var compareItems = data.compare.map(function (item) {
+      return '<li><span data-lucide="check"></span>' + item + '</li>';
+    }).join("");
+
+    return '' +
+      '<section class="section service-sticky-detail" aria-labelledby="service-sticky-title">' +
+      '<div class="container service-sticky-layout">' +
+
+      '<aside class="service-sticky-nav" aria-label="Service categories">' +
+      nav +
+      '</aside>' +
+
+      '<div class="service-sticky-main">' +
+
+      '<div class="service-sticky-copy" data-aos="fade-up">' +
+      '<p class="eyebrow">' + data.eyebrow + '</p>' +
+      '<h2 id="service-sticky-title">' + data.overviewTitle + '</h2>' +
+
+      '<p>' + data.intro + '</p>' +
+      '<p>' + data.overview + '</p>' +
+
+      '<ul class="service-sticky-checks">' +
+      compareItems +
+      '</ul>' +
+
+      '<blockquote>' +
+      'Start with the details you can see. Participating providers can clarify final scope, timing, pricing, and service terms directly.' +
+      '</blockquote>' +
+
+      '<p>' +
+      'Oakline is an independent matching platform. Oakline does not directly perform tree work, set provider pricing, dispatch crews, or guarantee provider availability.' +
+      '</p>' +
+      '</div>' +
+
+      '<div class="service-sticky-photos" data-aos="fade-left">' +
+      '<img src="' + data.image + '" alt="' + data.eyebrow + ' request category" loading="lazy">' +
+      '<img src="assets/images/hero-services.jpg" alt="Residential tree request planning" loading="lazy">' +
+      '</div>' +
+
+      '</div>' +
+      '</div>' +
+      '</section>';
+  }
+
   function renderServicePage(data, slug) {
     var main = document.querySelector("[data-service-page]");
     if (!main || !data) return;
     document.title = data.title + " | Oakline";
     main.innerHTML = [
       '<section class="service-hero service-hero-' + slug + '"><div class="service-hero-content"><div class="service-hero-copy" data-aos="fade-up"><p class="eyebrow">' + data.eyebrow + '</p><h1>' + data.title + '</h1><p class="lead">' + data.intro + '</p><div class="btn-row"><a class="btn btn-primary" href="contact.html">Start your request</a><a class="btn btn-ghost-dark" href="all-services.html">Compare service categories</a></div><p class="clarifier">Oakline helps compare local provider options and does not directly perform tree work.</p></div></div></section>',
+
       '<section class="section"><div class="container service-overview-panel"><div class="image-frame" data-aos="fade-right"><img src="' + data.image + '" alt="' + data.eyebrow + ' project setting" loading="lazy"></div><div class="content-stack" data-aos="fade-left"><p class="eyebrow">Service overview</p><h2>' + data.overviewTitle + '</h2><p>' + data.overview + '</p><div class="btn-row"><a class="btn btn-primary" href="contact.html">' + data.cta + '</a><a class="btn btn-ghost" href="all-services.html">View all services</a></div></div></div></section>',
+
+      serviceStickyDetail(data, slug),
+
       '<section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Common scenarios</p><h2>When this request category tends to fit.</h2></div><p>These scenarios help frame the request clearly while keeping final recommendations with participating providers.</p></div><div class="scenario-strip">' + data.scenarios.map(function (item) { return '<article class="scenario-card" data-aos="zoom-in"><img src="' + data.image + '" alt="' + item[0] + '" loading="lazy"><div class="scenario-card-content"><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>'; }).join("") + '</div></div></section>',
+
       '<section class="section"><div class="container service-faq-grid"><div class="content-stack" data-aos="fade-right"><p class="eyebrow">Questions</p><h2>Clear answers before you continue.</h2><p>Oakline keeps the platform role transparent so homeowners can compare options without mistaking Oakline for a direct service provider.</p></div><div class="accordion faq-accordion" data-accordion data-aos="fade-left">' + faqItems(data.faqs) + '</div></div></section>',
+
       '<section class="prefooter-cta cta-service-' + data.index + '"><div class="container" data-aos="fade-up"><p class="eyebrow">Start carefully</p><h2>' + data.cta + ' with a transparent matching platform.</h2><p>Share your project details and review local provider options where participation is available.</p><div class="btn-row"><a class="btn btn-accent" href="contact.html">Submit project details</a><a class="btn btn-ghost-dark" href="all-services.html">Review all categories</a></div></div></section>'
     ].join("");
 
