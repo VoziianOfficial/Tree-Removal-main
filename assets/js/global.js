@@ -56,17 +56,251 @@
   }
 
   function applyConfig(root) {
-    (root || document).querySelectorAll("[data-config]").forEach(function (node) {
+    var scope = root || document;
+
+    scope.querySelectorAll("[data-config]").forEach(function (node) {
       node.textContent = get(node.getAttribute("data-config"));
     });
-    (root || document).querySelectorAll("[data-config-attr]").forEach(function (node) {
+
+    scope.querySelectorAll("[data-config-attr]").forEach(function (node) {
       node.getAttribute("data-config-attr").split(";").forEach(function (entry) {
         var parts = entry.split(":");
+
         if (parts.length === 2) {
-          node.setAttribute(parts[0].trim(), get(parts[1].trim()));
+          var attrName = parts[0].trim();
+          var configPath = parts[1].trim();
+          var value = get(configPath);
+
+          if (value) {
+            node.setAttribute(attrName, value);
+          }
         }
       });
     });
+
+    syncConfigEverywhere(scope);
+  }
+
+  function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function getFullAddress() {
+    return get("company.fullAddress") ||
+      [get("company.address"), get("company.cityStateZip"), get("company.country")]
+        .filter(Boolean)
+        .join(", ");
+  }
+
+  function getShortAddress() {
+    return [get("company.address"), get("company.cityStateZip")]
+      .filter(Boolean)
+      .join(", ");
+  }
+
+  function getMapLink() {
+    return get("company.mapLink") ||
+      ("https://maps.google.com/?q=" + encodeURIComponent(getFullAddress()));
+  }
+
+  function replaceTextInNode(node, replacements) {
+    if (!node || !node.nodeValue) return;
+
+    var value = node.nodeValue;
+
+    replacements.forEach(function (item) {
+      if (!item.from || item.to === undefined || item.to === null) return;
+
+      value = value.replace(
+        new RegExp(escapeRegExp(item.from), "g"),
+        item.to
+      );
+    });
+
+    node.nodeValue = value;
+  }
+
+  function replaceTextEverywhere(root, replacements) {
+    var scope = root || document;
+
+    var walker = document.createTreeWalker(
+      scope,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode: function (node) {
+          var parent = node.parentElement;
+
+          if (!parent) return NodeFilter.FILTER_REJECT;
+
+          var tag = parent.tagName ? parent.tagName.toLowerCase() : "";
+
+          if (
+            tag === "script" ||
+            tag === "style" ||
+            tag === "noscript" ||
+            tag === "textarea" ||
+            tag === "option"
+          ) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+
+    var textNodes = [];
+    var current;
+
+    while ((current = walker.nextNode())) {
+      textNodes.push(current);
+    }
+
+    textNodes.forEach(function (node) {
+      replaceTextInNode(node, replacements);
+    });
+  }
+
+  function updateContactLinks(root) {
+    var scope = root || document;
+
+    var phoneHref = get("contact.phoneHref");
+    var emailHref = get("contact.emailHref");
+    var mapHref = getMapLink();
+
+    if (phoneHref) {
+      scope.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+        link.setAttribute("href", phoneHref);
+      });
+    }
+
+    if (emailHref) {
+      scope.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+        link.setAttribute("href", emailHref);
+      });
+    }
+
+    scope.querySelectorAll('a[href*="maps.google"], a[href*="google.com/maps"]').forEach(function (link) {
+      link.setAttribute("href", mapHref);
+    });
+  }
+
+  function buildServiceSelects(root) {
+    var scope = root || document;
+    var services = config.services || [];
+
+    if (!services.length) return;
+
+    function fillSelect(select) {
+      var currentValue = select.value;
+
+      select.innerHTML = [
+        '<option value="" selected disabled>Select service category</option>'
+      ].concat(
+        services.map(function (service) {
+          return '<option value="' + service.name + '">' + service.name + "</option>";
+        })
+      ).concat([
+        '<option value="Not sure yet">Not sure yet</option>'
+      ]).join("");
+
+      if (currentValue) {
+        select.value = currentValue;
+      }
+    }
+
+    scope.querySelectorAll('select[name="subject"]').forEach(function (select) {
+      fillSelect(select);
+    });
+
+    scope.querySelectorAll('input[name="subject"]').forEach(function (input) {
+      var select = document.createElement("select");
+
+      select.name = "subject";
+      select.required = input.required || true;
+      select.className = input.className || "";
+
+      fillSelect(select);
+
+      input.replaceWith(select);
+    });
+  }
+
+  function updateFormEndpoints(root) {
+    var scope = root || document;
+    var endpoint = get("forms.endpoint");
+
+    if (!endpoint) return;
+
+    scope.querySelectorAll("form").forEach(function (form) {
+      if (
+        form.classList.contains("contact-form") ||
+        form.classList.contains("contact-map-style__form") ||
+        form.getAttribute("action") === "contact.php"
+      ) {
+        form.setAttribute("action", endpoint);
+      }
+    });
+  }
+
+  function syncConfigEverywhere(root) {
+    var scope = root || document;
+
+    var replacements = [
+      {
+        from: "Oakline",
+        to: get("brand.name")
+      },
+      {
+        from: "Oakline Matching LLC",
+        to: get("company.legalName")
+      },
+      {
+        from: "OKL-US-48219",
+        to: get("company.companyId")
+      },
+      {
+        from: "requests@oakline.example",
+        to: get("contact.email")
+      },
+      {
+        from: "mailto:requests@oakline.example",
+        to: get("contact.emailHref")
+      },
+      {
+        from: "(555) 014-8222",
+        to: get("contact.phoneDisplay")
+      },
+      {
+        from: "+15550148222",
+        to: get("contact.phoneRaw")
+      },
+      {
+        from: "tel:+15550148222",
+        to: get("contact.phoneHref")
+      },
+      {
+        from: "1842 Evergreen Way, Suite 210",
+        to: get("company.address")
+      },
+      {
+        from: "Portland, OR 97205",
+        to: get("company.cityStateZip")
+      },
+      {
+        from: "1842 Evergreen Way, Suite 210, Portland, OR 97205, United States",
+        to: getFullAddress()
+      },
+      {
+        from: "Portland operations desk",
+        to: get("contact.addressLabel")
+      }
+    ];
+
+    replaceTextEverywhere(scope, replacements);
+    updateContactLinks(scope);
+    buildServiceSelects(scope);
+    updateFormEndpoints(scope);
   }
 
   function serviceLinks(className) {
@@ -288,10 +522,11 @@
     get: get,
     renderIcons: renderIcons,
     applyConfig: applyConfig,
+    syncConfigEverywhere: syncConfigEverywhere,
     initAll: initAll,
     createFAQSchema: createFAQSchema
   };
-
+  
   document.addEventListener("DOMContentLoaded", function () {
     buildHeader();
     buildFooter();
