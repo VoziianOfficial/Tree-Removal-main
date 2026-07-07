@@ -285,8 +285,8 @@
 
 .contact-editorial {
   background: #ffffff;
-  padding-top: 76px;
-  padding-bottom: 86px;
+  padding-top: 38px;
+  padding-bottom: 43px;
 }
 
 .contact-editorial__layout {
@@ -414,8 +414,8 @@
 
 @media (max-width: 640px) {
   .contact-editorial {
-    padding-top: 56px;
-    padding-bottom: 62px;
+      padding-top: 28px;
+      padding-bottom: 32px;
   }
 
   .contact-editorial__photo {
@@ -443,3 +443,5 @@
     gap: 12px;
   }
 }
+
+
