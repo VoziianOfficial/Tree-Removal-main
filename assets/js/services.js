@@ -218,6 +218,62 @@
       '</section>';
   }
 
+  function serviceTextFeatureBlock(data, slug) {
+    var titleMap = {
+      "tree-removal": ["Tree", "Removal"],
+      "tree-trimming-pruning": ["Trimming", "& Pruning"],
+      "stump-grinding-removal": ["Stump", "Grinding"],
+      "emergency-storm-cleanup": ["Storm", "Cleanup"],
+      "lot-land-clearing": ["Land", "Clearing"],
+      "tree-health-assessment": ["Tree", "Health"]
+    };
+
+    var icons = ["clipboard-list", "map-pin", "sliders-horizontal", "shield-check"];
+
+    var title = titleMap[slug] || [data.eyebrow, "Request"];
+
+    var featureCards = data.compare.map(function (item, index) {
+      return '' +
+        '<article class="service-feature-note">' +
+        '<span class="service-feature-note__icon">' +
+        '<span data-lucide="' + icons[index % icons.length] + '"></span>' +
+        '</span>' +
+        '<h3>' + item + '</h3>' +
+        '</article>';
+    }).join("");
+
+    return '' +
+      '<section class="section service-text-feature" aria-labelledby="service-text-feature-title">' +
+      '<div class="container">' +
+
+      '<div class="service-text-feature__intro" data-aos="fade-up">' +
+      '<h2 id="service-text-feature-title">' +
+      title[0] + ' <span>' + title[1] + '</span>' +
+      '</h2>' +
+
+      '<p>' +
+      data.intro +
+      '</p>' +
+
+      '<p>' +
+      data.overview +
+      '</p>' +
+      '</div>' +
+
+      '<div class="service-feature-notes" data-aos="fade-up">' +
+      featureCards +
+      '</div>' +
+
+      '<div class="service-text-feature__bottom" data-aos="fade-up">' +
+      '<p>' +
+      'Oakline helps homeowners prepare clearer request details before comparing participating local provider options. Final pricing, scheduling, service scope, cleanup terms, licensing, insurance, warranties, and availability are set directly by participating providers.' +
+      '</p>' +
+      '</div>' +
+
+      '</div>' +
+      '</section>';
+  }
+
   function renderServicePage(data, slug) {
     var main = document.querySelector("[data-service-page]");
     if (!main || !data) return;
@@ -228,6 +284,8 @@
       '<section class="section"><div class="container service-overview-panel"><div class="image-frame" data-aos="fade-right"><img src="' + data.image + '" alt="' + data.eyebrow + ' project setting" loading="lazy"></div><div class="content-stack" data-aos="fade-left"><p class="eyebrow">Service overview</p><h2>' + data.overviewTitle + '</h2><p>' + data.overview + '</p><div class="btn-row"><a class="btn btn-primary" href="contact.html">' + data.cta + '</a><a class="btn btn-ghost" href="all-services.html">View all services</a></div></div></div></section>',
 
       serviceStickyDetail(data, slug),
+
+      serviceTextFeatureBlock(data, slug),
 
       '<section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Common scenarios</p><h2>When this request category tends to fit.</h2></div><p>These scenarios help frame the request clearly while keeping final recommendations with participating providers.</p></div><div class="scenario-strip">' + data.scenarios.map(function (item) { return '<article class="scenario-card" data-aos="zoom-in"><img src="' + data.image + '" alt="' + item[0] + '" loading="lazy"><div class="scenario-card-content"><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>'; }).join("") + '</div></div></section>',
 
