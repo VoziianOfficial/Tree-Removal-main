@@ -63,22 +63,132 @@
     </section>
 
 
-    <section class="section section-soft" aria-labelledby="confidence">
-      <div class="container tab-shell" data-tab-group>
-        <div class="content-stack" data-aos="fade-right">
-          <p class="eyebrow">Compare with confidence</p>
-          <h2 id="confidence">Know which questions belong with the provider.</h2>
-          <p>Oakline helps you start the request. Participating providers handle the service-specific answers.</p>
-          <div class="tab-list">
-            <button class="tab-button" type="button" data-tab-target="quotes">Quotes <span data-lucide="circle-dollar-sign"></span></button>
-            <button class="tab-button" type="button" data-tab-target="terms">Terms <span data-lucide="file-text"></span></button>
-            <button class="tab-button" type="button" data-tab-target="coverage">Coverage <span data-lucide="map-pin"></span></button>
-          </div>
+    <section class="section oakline-about-tabs" aria-labelledby="oakline-about-tabs-title">
+      <div class="oakline-about-tabs__shell" data-tab-group>
+        <div class="oakline-about-tabs__heading">
+          <p class="eyebrow">About Oakline</p>
+          <h2 id="oakline-about-tabs-title">A clearer way to prepare tree-related requests.</h2>
         </div>
-        <div data-aos="fade-left">
-          <div class="tab-panel" data-tab-panel="quotes"><div class="tab-panel-card"><h3>Quote details come from providers.</h3><p>Ask how tree size, urgency, equipment, cleanup, access, and local requirements affect the provider's pricing approach.</p></div></div>
-          <div class="tab-panel" data-tab-panel="terms"><div class="tab-panel-card"><h3>Service terms are provider-specific.</h3><p>Confirm scheduling, cancellation policies, warranties, insurance, licensing, and what is included before hiring.</p></div></div>
-          <div class="tab-panel" data-tab-panel="coverage"><div class="tab-panel-card"><h3>Provider availability may change by ZIP code.</h3><p>Participation and timing can vary based on route, season, weather, and project type.</p></div></div>
+    
+        <div class="oakline-about-tabs__nav" role="tablist" aria-label="Oakline platform topics">
+          <button class="oakline-about-tab tab-button" type="button" data-tab-target="request-details">
+            Request Details
+          </button>
+          <button class="oakline-about-tab tab-button" type="button" data-tab-target="local-context">
+            Local Context
+          </button>
+          <button class="oakline-about-tab tab-button" type="button" data-tab-target="provider-review">
+            Provider Review
+          </button>
+          <button class="oakline-about-tab tab-button" type="button" data-tab-target="homeowner-choice">
+            Homeowner Choice
+          </button>
+        </div>
+    
+        <div class="oakline-about-tabs__content">
+          <div class="tab-panel" data-tab-panel="request-details">
+            <div class="oakline-about-tabs__panel">
+              <div class="oakline-about-tabs__copy">
+                <h3>Request details make the first provider conversation clearer.</h3>
+                <p>
+                  Oakline helps homeowners organize visible tree-related details before comparing participating local
+                  provider options. Instead of submitting a vague request, homeowners can describe the tree condition,
+                  nearby structures, access concerns, timing needs, and cleanup expectations.
+                </p>
+    
+                <ul>
+                  <li><span data-lucide="check"></span> Project category and visible tree condition</li>
+                  <li><span data-lucide="check"></span> Access, nearby structures, and property context</li>
+                  <li><span data-lucide="check"></span> Cleanup expectations and timing preferences</li>
+                  <li><span data-lucide="check"></span> Clear first step before provider follow-up</li>
+                </ul>
+    
+                <a class="btn btn-primary" href="contact.html">Start request details</a>
+              </div>
+    
+              <div class="oakline-about-tabs__image">
+                <img src="assets/images/service-1.jpg" alt="Tree removal request context" loading="lazy">
+              </div>
+            </div>
+          </div>
+    
+          <div class="tab-panel" data-tab-panel="local-context">
+            <div class="oakline-about-tabs__panel">
+              <div class="oakline-about-tabs__copy">
+                <h3>Local context can affect which providers are available.</h3>
+                <p>
+                  Provider participation may depend on ZIP code, route coverage, weather, project complexity, and local
+                  demand. Oakline helps structure the request, but availability, timing, and response details come from
+                  participating providers directly.
+                </p>
+    
+                <ul>
+                  <li><span data-lucide="check"></span> Provider coverage may vary by ZIP code</li>
+                  <li><span data-lucide="check"></span> Storm demand can affect response timing</li>
+                  <li><span data-lucide="check"></span> Access and equipment needs may change next steps</li>
+                  <li><span data-lucide="check"></span> No guaranteed provider response or schedule</li>
+                </ul>
+    
+                <a class="btn btn-primary" href="all-services.html">View categories</a>
+              </div>
+    
+              <div class="oakline-about-tabs__image">
+                <img src="assets/images/hero-services.jpg" alt="Residential property with mature trees" loading="lazy">
+              </div>
+            </div>
+          </div>
+    
+          <div class="tab-panel" data-tab-panel="provider-review">
+            <div class="oakline-about-tabs__panel">
+              <div class="oakline-about-tabs__copy">
+                <h3>Provider details should be reviewed before moving forward.</h3>
+                <p>
+                  Oakline is not a tree removal company and does not perform the work. Homeowners should review provider
+                  licensing, insurance, written scope, cleanup terms, pricing factors, warranties, and service agreements
+                  before choosing whether to continue.
+                </p>
+    
+                <ul>
+                  <li><span data-lucide="check"></span> Verify licensing and insurance directly</li>
+                  <li><span data-lucide="check"></span> Ask what is included and excluded</li>
+                  <li><span data-lucide="check"></span> Compare cleanup, access, and pricing details</li>
+                  <li><span data-lucide="check"></span> Review provider-specific terms before hiring</li>
+                </ul>
+    
+                <a class="btn btn-primary" href="about.html">How Oakline works</a>
+              </div>
+    
+              <div class="oakline-about-tabs__image">
+                <img src="assets/images/hero-about.jpg" alt="Tree provider review context" loading="lazy">
+              </div>
+            </div>
+          </div>
+    
+          <div class="tab-panel" data-tab-panel="homeowner-choice">
+            <div class="oakline-about-tabs__panel">
+              <div class="oakline-about-tabs__copy">
+                <h3>The homeowner stays in control of the final decision.</h3>
+                <p>
+                  Oakline helps with the first step: organizing the request and making provider comparison easier. Final
+                  pricing, scheduling, project scope, cleanup, and service outcomes are handled between the homeowner and
+                  the provider they choose.
+                </p>
+    
+                <ul>
+                  <li><span data-lucide="check"></span> Compare provider options without pressure</li>
+                  <li><span data-lucide="check"></span> Continue only if provider terms fit your needs</li>
+                  <li><span data-lucide="check"></span> Ask questions before approving any work</li>
+                  <li><span data-lucide="check"></span> Make the final decision directly with the provider</li>
+                </ul>
+    
+                <a class="btn btn-primary" href="contact.html">Submit project details</a>
+              </div>
+    
+              <div class="oakline-about-tabs__image">
+                <img src="assets/images/hero-contact.jpg" alt="Homeowner preparing tree request details" loading="lazy">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

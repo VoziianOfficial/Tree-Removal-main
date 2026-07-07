@@ -335,3 +335,231 @@
     margin-top: 20px;
   }
 }
+
+.oakline-about-tabs {
+  background: #f7f5f1;
+  padding-top: 76px;
+  padding-bottom: 82px;
+}
+
+.oakline-about-tabs__shell {
+  width: min(1420px, calc(100% - 42px));
+  margin: 0 auto;
+}
+
+.oakline-about-tabs__heading {
+  max-width: 860px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.oakline-about-tabs__heading .eyebrow {
+  justify-content: center;
+}
+
+.oakline-about-tabs__heading h2 {
+  margin-top: 8px;
+}
+
+.oakline-about-tabs__nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(920px, 100%);
+  margin: 0 auto 64px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #24211d;
+}
+
+.oakline-about-tab {
+  position: relative;
+  min-height: 72px;
+  padding: 0 30px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: Sora, Manrope, Inter, sans-serif;
+  font-weight: 820;
+  box-shadow: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.oakline-about-tab::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  background: #7e9b20;
+  transform: translateX(-50%) rotate(45deg) scale(0);
+  transition: transform 0.25s ease;
+}
+
+.oakline-about-tab:hover,
+.oakline-about-tab.is-active {
+  background: #7e9b20;
+  color: var(--white);
+}
+
+.oakline-about-tab.is-active::after {
+  transform: translateX(-50%) rotate(45deg) scale(1);
+}
+
+.oakline-about-tabs__content .tab-panel {
+  display: none;
+}
+
+.oakline-about-tabs__content .tab-panel.is-active {
+  display: block;
+}
+
+.oakline-about-tabs__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.08fr);
+  gap: clamp(42px, 6vw, 92px);
+  align-items: center;
+}
+
+.oakline-about-tabs__copy {
+  padding-left: clamp(0px, 2vw, 18px);
+}
+
+.oakline-about-tabs__copy h3 {
+  max-width: 650px;
+  margin-bottom: 24px;
+  color: var(--black);
+  font-size: clamp(1.75rem, 2.8vw, 3.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.oakline-about-tabs__copy p {
+  max-width: 700px;
+  margin-bottom: 28px;
+  color: #5f6862;
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+.oakline-about-tabs__copy ul {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 34px;
+  padding: 0;
+  list-style: none;
+}
+
+.oakline-about-tabs__copy li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  color: #333a34;
+  font-size: 1.02rem;
+  font-weight: 680;
+  line-height: 1.55;
+}
+
+.oakline-about-tabs__copy li .icon {
+  width: 19px;
+  height: 19px;
+  margin-top: 3px;
+  color: #7e9b20;
+  stroke-width: 2.2;
+}
+
+.oakline-about-tabs__image {
+  position: relative;
+  min-height: 520px;
+  overflow: visible;
+}
+
+.oakline-about-tabs__image::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  bottom: -34px;
+  width: 92%;
+  height: 88%;
+  border: 18px solid rgba(15, 17, 17, 0.06);
+  z-index: 0;
+}
+
+.oakline-about-tabs__image img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  box-shadow: 0 20px 44px rgba(15, 17, 17, 0.08);
+}
+
+@media (max-width: 1100px) {
+  .oakline-about-tabs__nav {
+    margin-bottom: 42px;
+  }
+
+  .oakline-about-tabs__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .oakline-about-tabs__image {
+    min-height: 430px;
+  }
+
+  .oakline-about-tabs__image img {
+    height: 430px;
+  }
+}
+
+@media (max-width: 760px) {
+  .oakline-about-tabs {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .oakline-about-tabs__shell {
+    width: calc(100% - 28px);
+  }
+
+  .oakline-about-tabs__nav {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 18px;
+    margin-bottom: 34px;
+  }
+
+  .oakline-about-tab {
+    min-height: 58px;
+    font-size: 0.9rem;
+  }
+
+  .oakline-about-tab::after {
+    display: none;
+  }
+
+  .oakline-about-tabs__copy h3 {
+    font-size: 1.65rem;
+  }
+
+  .oakline-about-tabs__copy p,
+  .oakline-about-tabs__copy li {
+    font-size: 0.95rem;
+  }
+
+  .oakline-about-tabs__image {
+    min-height: 300px;
+  }
+
+  .oakline-about-tabs__image::before {
+    left: -14px;
+    bottom: -14px;
+    border-width: 10px;
+  }
+
+  .oakline-about-tabs__image img {
+    height: 300px;
+  }
+}
