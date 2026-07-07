@@ -251,6 +251,8 @@
     nodes.forEach(function (node) { observer.observe(node); });
   }
 
+
+
   function createFAQSchema(selector) {
     var items = Array.prototype.slice.call(document.querySelectorAll(selector || ".faq-accordion .accordion-item"));
     if (!items.length) return;
