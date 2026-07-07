@@ -130,73 +130,110 @@
   </div>
 </section>
 
-    <section class="section section-soft" id="request-form" aria-labelledby="request-title">
-      <div class="container">
-        <div class="request-panel" data-aos="fade-up">
-          <div class="request-form-wrap">
-            <p class="eyebrow">Project request</p>
-            <h2 id="request-title">Share the details Oakline should route.</h2>
-            <form class="form-grid" action="contact.php" method="post" data-request-form novalidate>
-              <div class="form-field">
-                <label for="fullName">Full name</label>
-                <input id="fullName" name="fullName" autocomplete="name" required>
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
-              </div>
-              <div class="form-field">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-              </div>
-              <div class="form-field">
-                <label for="service">Service category</label>
-                <select id="service" name="service" required>
-                  <option value="">Select a category</option>
-                  <option>Tree Removal</option>
-                  <option>Tree Trimming & Pruning</option>
-                  <option>Stump Grinding & Removal</option>
-                  <option>Emergency Storm Cleanup</option>
-                  <option>Lot & Land Clearing</option>
-                  <option>Tree Health Assessment</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label for="message">Project details</label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-              <div class="form-field is-hidden" aria-hidden="true">
-                <label for="website">Website</label>
-                <input id="website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-              <input type="hidden" name="sourcePage" value="contact.html">
-              <input type="hidden" name="formStartedAt" value="">
-              <div class="form-field full">
-                <label class="checkbox-line" for="privacyConsent">
-                  <input id="privacyConsent" name="privacyConsent" type="checkbox" value="yes" required>
-                  <span>I agree that Oakline may process my request and that participating providers may contact me regarding my project. I understand Oakline is not a direct tree service provider.</span>
-                </label>
-              </div>
-              <div class="form-field full">
-                <p class="form-note">Oakline is an independent matching platform. Final pricing, scheduling, availability, licensing, insurance, warranties, and service terms come from participating providers.</p>
-              </div>
-              <div class="form-field full">
-                <button class="btn btn-primary" type="submit">Submit project details <span data-lucide="send"></span></button>
-                <p class="form-status" role="status" aria-live="polite" data-form-status></p>
-              </div>
-            </form>
+<section class="section contact-map-style" aria-labelledby="contact-map-style-title">
+  <div class="contact-map-style__bg" aria-hidden="true"></div>
+
+  <div class="container contact-map-style__layout">
+    <div class="contact-map-style__form-card" data-aos="fade-right">
+      <p class="eyebrow">Get in touch</p>
+      <h2 id="contact-map-style-title">Contact Oakline</h2>
+
+      <form class="contact-map-style__form" action="contact.php" method="post">
+        <label>
+          <span class="sr-only">Name</span>
+          <input type="text" name="name" placeholder="Enter Name" required>
+        </label>
+
+        <label>
+          <span class="sr-only">Email</span>
+          <input type="email" name="email" placeholder="Enter Email" required>
+        </label>
+
+        <label>
+          <span class="sr-only">Phone</span>
+          <input type="tel" name="phone" placeholder="Phone">
+        </label>
+
+      <label>
+        <span class="sr-only">Select service</span>
+        <select name="subject" required>
+          <option value="" selected disabled>Select service category</option>
+          <option value="Tree Removal">Tree Removal</option>
+          <option value="Tree Trimming & Pruning">Tree Trimming &amp; Pruning</option>
+          <option value="Stump Grinding & Removal">Stump Grinding &amp; Removal</option>
+          <option value="Emergency Storm Cleanup">Emergency Storm Cleanup</option>
+          <option value="Lot & Land Clearing">Lot &amp; Land Clearing</option>
+          <option value="Tree Health Assessment">Tree Health Assessment</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+      </label>
+
+        <label>
+          <span class="sr-only">Message</span>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+        </label>
+
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <aside class="contact-map-style__dark" data-aos="fade-left">
+<div class="contact-map-style__brand">
+  <span class="contact-map-style__logo" aria-hidden="true">
+    <span data-lucide="tree-pine"></span>
+  </span>
+</div>
+
+      <div class="contact-map-style__info-list">
+        <div class="contact-map-style__info">
+          <span class="contact-map-style__info-icon">
+            <span data-lucide="map-pin"></span>
+          </span>
+          <div>
+            <h3>Operations address</h3>
+            <p>1842 Evergreen Way, Suite 210<br>Portland, OR 97205</p>
           </div>
-          <aside class="request-aside">
-            <h3>What helps providers review your request?</h3>
-            <ul class="feature-list">
-              <li><span data-lucide="check"></span><span>Tree location and nearby structures.</span></li>
-              <li><span data-lucide="check"></span><span>Visible condition, urgency, and access limitations.</span></li>
-              <li><span data-lucide="check"></span><span>Cleanup, stump, haul-away, or assessment preferences.</span></li>
-            </ul>
-          </aside>
+        </div>
+
+        <div class="contact-map-style__info">
+          <span class="contact-map-style__info-icon">
+            <span data-lucide="mail"></span>
+          </span>
+          <div>
+            <h3>Send your mail at</h3>
+            <p><a href="mailto:requests@oakline.example">requests@oakline.example</a></p>
+          </div>
+        </div>
+
+        <div class="contact-map-style__info">
+          <span class="contact-map-style__info-icon">
+            <span data-lucide="phone"></span>
+          </span>
+          <div>
+            <h3>Call Oakline</h3>
+            <p><a href="tel:+15550148222">(555) 014-8222</a></p>
+          </div>
+        </div>
+
+        <div class="contact-map-style__info">
+          <span class="contact-map-style__info-icon">
+            <span data-lucide="shield-check"></span>
+          </span>
+          <div>
+            <h3>Platform role</h3>
+            <p>Final pricing, scheduling, service terms.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div class="contact-map-style__bottom">
+        <p>Have a tree-related request?</p>
+        <a href="tel:+15550148222">(555) 014-8222</a>
+      </div>
+    </aside>
+  </div>
+</section>
 
     <section class="section" aria-labelledby="after-submit">
       <div class="container">
@@ -232,6 +269,18 @@
       </div>
     </section>
 
+        <section class="prefooter-cta cta-contact">
+          <div class="container" data-aos="fade-up">
+            <p class="eyebrow">Begin here</p>
+            <h2>Start a tree-related request with clear platform disclosure.</h2>
+            <p>Share your project details and compare participating local provider options where availability exists.</p>
+            <div class="btn-row">
+              <a class="btn btn-accent" href="#request-form">Submit project details</a>
+              <a class="btn btn-ghost-dark" data-config-attr="href:contact.phoneHref">Call Oakline</a>
+            </div>
+          </div>
+        </section>
+
     <section class="section" aria-labelledby="contact-faq-title">
       <div class="container faq-layout">
         <aside class="faq-aside" data-aos="fade-right">
@@ -248,17 +297,6 @@
       </div>
     </section>
 
-    <section class="prefooter-cta cta-contact">
-      <div class="container" data-aos="fade-up">
-        <p class="eyebrow">Begin here</p>
-        <h2>Start a tree-related request with clear platform disclosure.</h2>
-        <p>Share your project details and compare participating local provider options where availability exists.</p>
-        <div class="btn-row">
-          <a class="btn btn-accent" href="#request-form">Submit project details</a>
-          <a class="btn btn-ghost-dark" data-config-attr="href:contact.phoneHref">Call Oakline</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <div data-site-footer></div>
