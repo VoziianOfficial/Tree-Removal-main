@@ -604,12 +604,13 @@
 }
 
 .hover-brief-content h2 {
-  max-width: 720px;
-  margin-bottom: 28px;
+  max-width: 760px;
+  margin-bottom: 26px;
   color: var(--black);
-  font-size: clamp(2.4rem, 5vw, 5.7rem);
-  line-height: 0.98;
-  letter-spacing: -0.065em;
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 650;
 }
 
 .hover-brief-content>p {
@@ -948,3 +949,4 @@
     font-size: 0.94rem;
   }
 }
+
