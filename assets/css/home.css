@@ -820,3 +820,234 @@
     margin-bottom: 28px;
   }
 }
+
+.oakline-wide-info {
+  background: #f7f5f1;
+  padding-top: 54px;
+  padding-bottom: 54px;
+}
+
+.oakline-wide-shell {
+  width: min(1380px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.oakline-wide-info__top {
+  margin-bottom: 36px;
+}
+
+.oakline-wide-info__top h2 {
+  margin-bottom: 22px;
+  color: var(--black);
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  max-width: 980px;
+}
+
+.oakline-wide-info__top h2 span {
+  color: #a8842d;
+}
+
+.oakline-wide-info__top p {
+  max-width: 1280px;
+  color: #616760;
+  font-size: 1.04rem;
+  line-height: 1.82;
+}
+
+.oakline-wide-info__top p+p {
+  margin-top: 22px;
+}
+
+.oakline-wide-info__features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.oakline-wide-feature {
+  position: relative;
+  min-height: 232px;
+  padding: 28px 24px 26px;
+  background: #f1efea;
+  border: 1px solid rgba(15, 17, 17, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+
+.oakline-wide-feature::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+  height: 2px;
+  background: #a8842d;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s ease;
+}
+
+.oakline-wide-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(15, 17, 17, 0.07);
+  border-color: rgba(168, 132, 45, 0.25);
+}
+
+.oakline-wide-feature:hover::after {
+  transform: scaleX(1);
+}
+
+.oakline-wide-feature--accent {
+  background: #ece8df;
+}
+
+.oakline-wide-feature--dark {
+  background: #24211d;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.oakline-wide-feature__icon {
+  width: 112px;
+  height: 112px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #a8842d;
+  transition: transform 0.28s ease, background 0.28s ease;
+}
+
+.oakline-wide-feature:hover .oakline-wide-feature__icon {
+  transform: scale(1.06);
+}
+
+.oakline-wide-feature__icon .icon {
+  width: 46px;
+  height: 46px;
+  color: var(--white);
+  stroke-width: 1.7;
+}
+
+.oakline-wide-feature h3 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--black);
+  font-size: 1.42rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.oakline-wide-feature h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #a8842d;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.oakline-wide-feature:hover h3::after {
+  transform: scaleX(1);
+}
+
+.oakline-wide-feature p {
+  color: #626862;
+  line-height: 1.75;
+  font-size: 0.98rem;
+  max-width: 290px;
+}
+
+.oakline-wide-feature--dark h3 {
+  color: var(--white);
+}
+
+.oakline-wide-feature--dark p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.oakline-wide-feature--dark .oakline-wide-feature__icon {
+  background: var(--lime);
+}
+
+.oakline-wide-feature--dark .oakline-wide-feature__icon .icon {
+  color: var(--black);
+}
+
+.oakline-wide-feature--dark h3::after,
+.oakline-wide-feature--dark::after {
+  background: var(--lime);
+}
+
+.oakline-wide-info__bottom {
+  padding-top: 10px;
+}
+
+.oakline-wide-info__bottom p {
+  max-width: 1320px;
+  color: #616760;
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+@media (max-width: 1100px) {
+  .oakline-wide-info__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .oakline-wide-info {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .oakline-wide-shell {
+    width: calc(100% - 24px);
+  }
+
+  .oakline-wide-info__top {
+    margin-bottom: 28px;
+  }
+
+  .oakline-wide-info__features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .oakline-wide-feature {
+    min-height: auto;
+    padding: 24px 20px 22px;
+  }
+
+  .oakline-wide-feature__icon {
+    width: 92px;
+    height: 92px;
+  }
+
+  .oakline-wide-feature__icon .icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .oakline-wide-feature h3 {
+    font-size: 1.2rem;
+  }
+
+  .oakline-wide-feature p,
+  .oakline-wide-info__bottom p,
+  .oakline-wide-info__top p {
+    font-size: 0.96rem;
+  }
+}
