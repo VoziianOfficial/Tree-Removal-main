@@ -9,6 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const services = window.OAKLINE_CONFIG.services;
   if (!services.length) return;
 
+  const showcaseImages = [
+    "assets/images/card-1.jpg",
+    "assets/images/card-2.jpg",
+    "assets/images/card-3.jpg",
+    "assets/images/card-4.jpg",
+    "assets/images/card-5.jpg",
+    "assets/images/hero-home.jpg"
+  ];
+
   const image = document.querySelector("[data-service-showcase-image]");
   const badge = document.querySelector("[data-service-showcase-badge]");
   const kicker = document.querySelector("[data-service-showcase-kicker]");
@@ -27,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (image) {
       image.style.opacity = "0";
       setTimeout(function () {
-        image.src = service.image;
+        image.src = showcaseImages[i] || service.image;
         image.alt = service.name + " category image";
         image.style.opacity = "1";
       }, 140);
