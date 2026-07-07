@@ -425,6 +425,7 @@ body {
 .header-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 
@@ -1705,7 +1706,7 @@ body {
   }
 
   .brand-link img {
-    width: 112px;
+    width: 212px;
   }
 
   .mobile-call,
