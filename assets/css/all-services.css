@@ -1134,3 +1134,199 @@
     height: 44px;
   }
 }
+
+
+.hero-metric-strip {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  background: #ffffff;
+  padding: 0;
+}
+
+.hero-metric-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(1480px, calc(100% - 42px));
+  margin: 0 auto;
+  transform: translateY(-38px);
+}
+
+.hero-metric-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 132px;
+  padding: 24px 28px;
+  overflow: hidden;
+  background: rgba(28, 26, 23, 0.96);
+  color: var(--white);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 22px 46px rgba(15, 17, 17, 0.12);
+  transition:
+    transform 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.hero-metric-card:last-child {
+  border-right: 0;
+}
+
+.hero-metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(126, 155, 32, 0.14), transparent 42%),
+    radial-gradient(circle at 85% 18%, rgba(184, 214, 61, 0.16), transparent 24%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.hero-metric-card::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 0;
+  height: 3px;
+  background: #7e9b20;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.hero-metric-card:hover {
+  transform: translateY(-6px);
+  background: #11120f;
+  box-shadow: 0 30px 58px rgba(15, 17, 17, 0.18);
+}
+
+.hero-metric-card:hover::before {
+  opacity: 1;
+}
+
+.hero-metric-card:hover::after {
+  transform: scaleX(1);
+}
+
+.hero-metric-icon {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(126, 155, 32, 0.16);
+  color: #b8d63d;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-metric-icon .icon {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.75;
+}
+
+.hero-metric-card:hover .hero-metric-icon {
+  background: #7e9b20;
+  color: var(--white);
+  transform: scale(1.06);
+}
+
+.hero-metric-content {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.hero-metric-content strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #b8d63d;
+  font-family: Sora, Manrope, Inter, sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -0.055em;
+}
+
+.hero-metric-content h3 {
+  margin: 0 0 7px;
+  color: var(--white);
+  font-size: 1.02rem;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.hero-metric-content p {
+  max-width: 310px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1150px) {
+  .hero-metric-strip__grid {
+    grid-template-columns: repeat(2, 1fr);
+    transform: translateY(-28px);
+  }
+
+  .hero-metric-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .hero-metric-card:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-metric-strip__grid {
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr;
+    transform: translateY(-18px);
+  }
+
+  .hero-metric-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    min-height: 116px;
+    padding: 20px 20px;
+    border-right: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-metric-card:first-child {
+    border-top: 0;
+  }
+
+  .hero-metric-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hero-metric-icon .icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .hero-metric-content strong {
+    font-size: 2.1rem;
+  }
+
+  .hero-metric-content h3 {
+    font-size: 0.98rem;
+  }
+
+  .hero-metric-content p {
+    font-size: 0.84rem;
+  }
+}
