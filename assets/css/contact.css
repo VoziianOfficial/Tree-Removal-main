@@ -682,6 +682,10 @@
 }
 
 @media (max-width: 760px) {
+  .contact-map-style__brand {
+    display: none;
+  }
+
   .contact-map-style {
     padding-bottom: 38px;
   }

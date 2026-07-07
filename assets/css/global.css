@@ -1586,8 +1586,7 @@ body {
   }
 
   .hero-badges {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: none;
   }
 
   .chip {
