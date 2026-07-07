@@ -107,16 +107,7 @@
   grid-column: span 2;
 }
 
-.review-panel {
-  display: grid;
-  grid-template-columns: 0.85fr 1fr;
-  gap: 36px;
-  align-items: center;
-}
 
-.review-panel .image-frame {
-  min-height: 520px;
-}
 
 .faq-layout {
   display: grid;
@@ -1049,5 +1040,242 @@
   .oakline-wide-info__bottom p,
   .oakline-wide-info__top p {
     font-size: 0.96rem;
+  }
+}
+
+.review-clean {
+  background: #f7f5f1;
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+
+.review-clean__shell {
+  display: grid;
+  gap: 38px;
+}
+
+.review-clean__top {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: stretch;
+}
+
+.review-clean__intro {
+  align-self: center;
+}
+
+.review-clean__intro h2 {
+  max-width: 700px;
+  margin-bottom: 18px;
+}
+
+.review-clean__intro>p {
+  max-width: 640px;
+  color: #626862;
+  font-size: 1.03rem;
+  line-height: 1.8;
+}
+
+.review-clean__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 28px;
+  border-top: 1px solid rgba(15, 17, 17, 0.14);
+}
+
+.review-clean__tab {
+  position: relative;
+  min-height: 58px;
+  border: 0;
+  border-bottom: 1px solid rgba(15, 17, 17, 0.14);
+  border-radius: 0;
+  background: transparent;
+  color: var(--black);
+  text-align: left;
+  font-family: Sora, Manrope, Inter, sans-serif;
+  font-weight: 800;
+  box-shadow: none;
+}
+
+.review-clean__tab:nth-child(odd) {
+  border-right: 1px solid rgba(15, 17, 17, 0.14);
+}
+
+.review-clean__tab:nth-child(even) {
+  padding-left: 18px;
+}
+
+.review-clean__tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 18px;
+  bottom: -1px;
+  height: 2px;
+  background: #7e9b20;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.review-clean__tab:nth-child(even)::after {
+  left: 18px;
+}
+
+.review-clean__tab:hover,
+.review-clean__tab.is-active {
+  color: #6f8917;
+}
+
+.review-clean__tab:hover::after,
+.review-clean__tab.is-active::after {
+  transform: scaleX(1);
+}
+
+.review-clean__image {
+  min-height: 500px;
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.review-clean__image::after {
+  inset: 20px;
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.review-clean__panels {
+  width: 100%;
+  padding-top: 36px;
+  border-top: 1px solid rgba(15, 17, 17, 0.14);
+}
+
+.review-clean__panels .tab-panel {
+  display: none;
+}
+
+.review-clean__panels .tab-panel.is-active {
+  display: block;
+}
+
+.review-clean__text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.55fr);
+  gap: clamp(34px, 5vw, 74px);
+  align-items: start;
+  width: 100%;
+}
+
+.review-clean__label {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: #6f8917;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.review-clean__main h3 {
+  max-width: 940px;
+  margin-bottom: 22px;
+  color: var(--black);
+  font-size: clamp(1.65rem, 2.8vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.review-clean__main p {
+  max-width: 960px;
+  color: #5f6862;
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.review-clean__main p+p {
+  margin-top: 16px;
+}
+
+.review-clean__checks {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(15, 17, 17, 0.12);
+}
+
+.review-clean__checks div {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(15, 17, 17, 0.12);
+  color: #20251f;
+  font-weight: 720;
+  line-height: 1.55;
+}
+
+.review-clean__checks .icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: #7e9b20;
+  stroke-width: 2.2;
+}
+
+@media (max-width: 1100px) {
+
+  .review-clean__top,
+  .review-clean__text {
+    grid-template-columns: 1fr;
+  }
+
+  .review-clean__image {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 760px) {
+  .review-clean {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .review-clean__shell {
+    gap: 28px;
+  }
+
+  .review-clean__tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .review-clean__tab,
+  .review-clean__tab:nth-child(even) {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .review-clean__tab::after,
+  .review-clean__tab:nth-child(even)::after {
+    left: 0;
+    right: 0;
+  }
+
+  .review-clean__image {
+    min-height: 300px;
+  }
+
+  .review-clean__panels {
+    padding-top: 28px;
+  }
+
+  .review-clean__main h3 {
+    font-size: 1.55rem;
+  }
+
+  .review-clean__main p,
+  .review-clean__checks div {
+    font-size: 0.95rem;
   }
 }
