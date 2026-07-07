@@ -7,6 +7,15 @@
       title: "Tree Removal Provider Matching",
       eyebrow: "Tree Removal",
       image: "assets/images/service-1.jpg",
+      galleryImages: [
+        "assets/images/card-1.jpg",
+        "assets/images/hero-about.jpg",
+        "assets/images/service-3.jpg",
+        "assets/images/card-2.jpg",
+        "assets/images/hero-contact.jpg",
+        "assets/images/service-5.jpg",
+        "assets/images/card-3.jpg"
+      ],
       intro: "Submit project details for a tree removal request and compare participating local provider options before deciding how to proceed.",
       overviewTitle: "Removal requests vary by tree size, setting, condition, and access.",
       overview: "Oakline helps homeowners organize removal details in one place so participating providers can understand the project context. Oakline does not remove trees, dispatch crews, quote final pricing, or guarantee provider availability.",
@@ -30,6 +39,15 @@
       title: "Tree Trimming & Pruning Provider Matching",
       eyebrow: "Trimming & Pruning",
       image: "assets/images/service-2.jpg",
+      galleryImages: [
+        "assets/images/card-4.jpg",
+        "assets/images/hero-home.jpg",
+        "assets/images/service-4.jpg",
+        "assets/images/card-5.jpg",
+        "assets/images/hero-services.jpg",
+        "assets/images/service-6.jpg",
+        "assets/images/card-6.jpg"
+      ],
       intro: "Compare local provider options for trimming, pruning, canopy clearance, and maintenance-focused tree requests.",
       overviewTitle: "Pruning decisions depend on goals, access, tree type, and property context.",
       overview: "Oakline gives homeowners a structured way to describe overgrowth, clearance needs, seasonal concerns, and tree condition. Providers may contact you with their own scope recommendations and availability.",
@@ -53,6 +71,15 @@
       title: "Stump Grinding & Removal Provider Matching",
       eyebrow: "Stump Grinding",
       image: "assets/images/service-3.jpg",
+      galleryImages: [
+        "assets/images/card-7.jpg",
+        "assets/images/hero-contact.jpg",
+        "assets/images/service-1.jpg",
+        "assets/images/card-1.jpg",
+        "assets/images/hero-about.jpg",
+        "assets/images/service-5.jpg",
+        "assets/images/card-2.jpg"
+      ],
       intro: "Submit stump details and review participating provider options for grinding depth, debris handling, access, and yard restoration needs.",
       overviewTitle: "Stump requests are shaped by diameter, root spread, access, and surface plans.",
       overview: "Oakline helps collect practical stump information so local providers can determine whether the request fits their availability and equipment. Oakline does not operate grinding equipment or set provider pricing.",
@@ -76,6 +103,15 @@
       title: "Emergency Storm Cleanup Provider Matching",
       eyebrow: "Storm Cleanup",
       image: "assets/images/service-4.jpg",
+      galleryImages: [
+        "assets/images/card-3.jpg",
+        "assets/images/service-2.jpg",
+        "assets/images/hero-home.jpg",
+        "assets/images/card-4.jpg",
+        "assets/images/service-6.jpg",
+        "assets/images/hero-about.jpg",
+        "assets/images/card-5.jpg"
+      ],
       intro: "After wind or storm damage, submit the situation details and compare available local provider options for cleanup-related tree work.",
       overviewTitle: "Urgent requests need clear details about hazards, access, and timing.",
       overview: "Oakline helps homeowners send structured storm cleanup details to participating providers. Oakline does not provide emergency services, guarantee same-day response, or direct provider crews.",
@@ -99,6 +135,15 @@
       title: "Lot & Land Clearing Provider Matching",
       eyebrow: "Lot & Land Clearing",
       image: "assets/images/service-5.jpg",
+      galleryImages: [
+        "assets/images/card-6.jpg",
+        "assets/images/hero-contact.jpg",
+        "assets/images/service-1.jpg",
+        "assets/images/card-7.jpg",
+        "assets/images/hero-services.jpg",
+        "assets/images/service-3.jpg",
+        "assets/images/hero-home.jpg"
+      ],
       intro: "Compare participating provider options for brush, small trees, overgrowth, and property preparation requests.",
       overviewTitle: "Clearing requests depend on acreage, vegetation, terrain, access, and disposal needs.",
       overview: "Oakline helps homeowners explain the property area, clearing goals, and site constraints. Participating providers decide whether they can support the project and what terms may apply.",
@@ -122,6 +167,15 @@
       title: "Tree Health Assessment Provider Matching",
       eyebrow: "Tree Health",
       image: "assets/images/service-6.jpg",
+      galleryImages: [
+        "assets/images/hero-about.jpg",
+        "assets/images/card-2.jpg",
+        "assets/images/service-2.jpg",
+        "assets/images/hero-contact.jpg",
+        "assets/images/card-5.jpg",
+        "assets/images/service-4.jpg",
+        "assets/images/card-7.jpg"
+      ],
       intro: "Connect with participating local providers who may review visible tree condition concerns and discuss assessment or next-step options.",
       overviewTitle: "Tree condition questions are best framed with visible symptoms and site context.",
       overview: "Oakline helps homeowners describe concerns such as dead limbs, cracks, fungal growth, canopy thinning, or storm stress. Providers determine whether they can evaluate the concern and what their assessment terms include.",
@@ -152,6 +206,10 @@
     return items.map(function (item) {
       return '<article class="accordion-item"><button class="accordion-trigger" type="button" aria-expanded="false" data-accordion-trigger>' + item[0] + '<span data-lucide="chevron-down"></span></button><div class="accordion-panel"><p>' + item[1] + '</p></div></article>';
     }).join("");
+  }
+
+  function serviceImage(data, index, fallback) {
+    return data.galleryImages && data.galleryImages[index] ? data.galleryImages[index] : fallback;
   }
 
   function serviceStickyDetail(data, slug) {
@@ -209,8 +267,8 @@
       '</div>' +
 
       '<div class="service-sticky-photos" data-aos="fade-left">' +
-      '<img src="' + data.image + '" alt="' + data.eyebrow + ' request category" loading="lazy">' +
-      '<img src="assets/images/hero-services.jpg" alt="Residential tree request planning" loading="lazy">' +
+      '<img src="' + serviceImage(data, 1, data.image) + '" alt="' + data.eyebrow + ' request category" loading="lazy">' +
+      '<img src="' + serviceImage(data, 2, "assets/images/hero-services.jpg") + '" alt="Residential tree request planning" loading="lazy">' +
       '</div>' +
 
       '</div>' +
@@ -281,17 +339,17 @@
     main.innerHTML = [
       '<section class="service-hero service-hero-' + slug + '"><div class="service-hero-content"><div class="service-hero-copy" data-aos="fade-up"><p class="eyebrow">' + data.eyebrow + '</p><h1>' + data.title + '</h1><p class="lead">' + data.intro + '</p><div class="btn-row"><a class="btn btn-primary" href="contact.html">Start your request</a><a class="btn btn-ghost-dark" href="all-services.html">Compare service categories</a></div><p class="clarifier">Oakline helps compare local provider options and does not directly perform tree work.</p></div></div></section>',
 
-      '<section class="section"><div class="container service-overview-panel"><div class="image-frame" data-aos="fade-right"><img src="' + data.image + '" alt="' + data.eyebrow + ' project setting" loading="lazy"></div><div class="content-stack" data-aos="fade-left"><p class="eyebrow">Service overview</p><h2>' + data.overviewTitle + '</h2><p>' + data.overview + '</p><div class="btn-row"><a class="btn btn-primary" href="contact.html">' + data.cta + '</a><a class="btn btn-ghost" href="all-services.html">View all services</a></div></div></div></section>',
+      '<section class="section"><div class="container service-overview-panel"><div class="image-frame" data-aos="fade-right"><img src="' + serviceImage(data, 0, data.image) + '" alt="' + data.eyebrow + ' project setting" loading="lazy"></div><div class="content-stack" data-aos="fade-left"><p class="eyebrow">Service overview</p><h2>' + data.overviewTitle + '</h2><p>' + data.overview + '</p><div class="btn-row"><a class="btn btn-primary" href="contact.html">' + data.cta + '</a><a class="btn btn-ghost" href="all-services.html">View all services</a></div></div></div></section>',
 
       serviceStickyDetail(data, slug),
 
       serviceTextFeatureBlock(data, slug),
 
-      '<section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Common scenarios</p><h2>When this request category tends to fit.</h2></div><p>These scenarios help frame the request clearly while keeping final recommendations with participating providers.</p></div><div class="scenario-strip">' + data.scenarios.map(function (item) { return '<article class="scenario-card" data-aos="zoom-in"><img src="' + data.image + '" alt="' + item[0] + '" loading="lazy"><div class="scenario-card-content"><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>'; }).join("") + '</div></div></section>',
+      '<section class="section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Common scenarios</p><h2>When this request category tends to fit.</h2></div><p>These scenarios help frame the request clearly while keeping final recommendations with participating providers.</p></div><div class="scenario-strip">' + data.scenarios.map(function (item, index) { return '<article class="scenario-card" data-aos="zoom-in"><img src="' + serviceImage(data, index + 3, data.image) + '" alt="' + item[0] + '" loading="lazy"><div class="scenario-card-content"><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div></article>'; }).join("") + '</div></div></section>',
 
       '<section class="section"><div class="container service-faq-grid"><div class="content-stack" data-aos="fade-right"><p class="eyebrow">Questions</p><h2>Clear answers before you continue.</h2><p>Oakline keeps the platform role transparent so homeowners can compare options without mistaking Oakline for a direct service provider.</p></div><div class="accordion faq-accordion" data-accordion data-aos="fade-left">' + faqItems(data.faqs) + '</div></div></section>',
 
-      '<section class="prefooter-cta cta-service-' + data.index + '"><div class="container" data-aos="fade-up"><p class="eyebrow">Start carefully</p><h2>' + data.cta + ' with a transparent matching platform.</h2><p>Share your project details and review local provider options where participation is available.</p><div class="btn-row"><a class="btn btn-accent" href="contact.html">Submit project details</a><a class="btn btn-ghost-dark" href="all-services.html">Review all categories</a></div></div></section>'
+      '<section class="prefooter-cta cta-service-' + data.index + '" style="background-image: url(\'' + serviceImage(data, 6, data.image) + '\')"><div class="container" data-aos="fade-up"><p class="eyebrow">Start carefully</p><h2>' + data.cta + ' with a transparent matching platform.</h2><p>Share your project details and review local provider options where participation is available.</p><div class="btn-row"><a class="btn btn-accent" href="contact.html">Submit project details</a><a class="btn btn-ghost-dark" href="all-services.html">Review all categories</a></div></div></section>'
     ].join("");
 
     if (window.Oakline) {
