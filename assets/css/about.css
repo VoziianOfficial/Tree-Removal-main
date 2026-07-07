@@ -722,8 +722,6 @@
   transform: translateX(-50%) translateY(-4px);
 }
 
-/* active green card */
-
 .four-category-card--active {
   margin-top: 0;
   background: #7e9b20;

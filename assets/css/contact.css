@@ -475,8 +475,6 @@
   box-shadow: 0 26px 70px rgba(15, 17, 17, 0.12);
 }
 
-/* LEFT FORM */
-
 .contact-map-style__form-card {
   display: flex;
   flex-direction: column;
@@ -543,8 +541,6 @@
   min-width: 210px;
   margin-top: 4px;
 }
-
-/* RIGHT DARK PANEL */
 
 .contact-map-style__dark {
   display: grid;
@@ -663,8 +659,6 @@
   font-weight: 850;
   text-decoration: none;
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1180px) {
   .contact-map-style__layout {
@@ -913,8 +907,6 @@
   background: var(--black);
   transform: translateX(-50%) translateY(-4px);
 }
-
-/* active green card */
 
 .contact-help-card--active {
   background: #7e9b20;
